@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <title>Login&signin form</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login">Login</div>
+            <div class="title sign in">Sign in</div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slider" id="login" checked>
+                <input type="radio" name="slider" id="signin">
+                <label for="login" class="slide login">Login</label>
+                <label for="signin" class="slide signin">Signin</label>
+                <div class="slide-tab"> </div>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form action="#" class="login">
+                    <div class="field">
+                        <input type="text" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" id="pswd" placeholder="Password" required>
+                    </div>
+                    <div class="pass-link"><a href="#">Forgot password</a></div>
+                    <div class="field">
+                        <input type="submit" id="log" value="Login" onclick="resume()">
+                    </div>
+                    <div class="signin-link">Not a member?<a href="#">Sign in</a></div>
+                </form>
+                <form action="#" class="signin">
+                    <div class="field">
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Signin">
+                    </div>
+                    <div class="social">
+                        <h3>Signin with</h3>
+                        <ul class="icons">
+                        <li><i><a href="https://www.facebook.com" class="fa fa-facebook"></a></i></li>
+                        <li><i><a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" class="fa fa-google"></a></i></li>
+                        <li><i><a href="https://www.linkedin.com/signup/cold-join?trk=guest_homepage-basic_nav-header-join" class="fa fa-linkedin"></a></i></li>
+                        <li><i><a href="https://www.instagram.com/accounts/login/?source=auth_switcher" class="fa fa-instagram"></a></i></li>
+                        </ul>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.querySelector("form.login");
+        const signinForm = document.querySelector("form.signin");
+        const loginBtn = document.querySelector("label.login");
+        const signinBtn = document.querySelector("label.signin");
+        const signinLink = document.querySelector(".signin-link a");
+        const loginText = document.querySelector(".title-text .login");
+        const signinText = document.querySelector(".title-text .signin");
+        signinBtn.onclick = (()=>{
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%"
+        });
+        loginBtn.onclick = (()=>{
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%"
+        });
+        signinLink.onclick = (()=>{
+            signinBtn.click();
+            return false;
+        })
+        var valid=[
+            {
+                Email: "priya@07",
+                Password: "1234"
+            },
+            {
+                Email: "priyanka@73",
+                Password: "54321"
+            },
+            {
+                Email: "priya",
+                Password: "priyanka"
+            },
+        ]
+
+        function resume(){
+            var Email=document.getElementById("email").value;
+            var Password=document.getElementById("pswd").value;
+            var flag=true;
+        
+            for(i=0;i<valid.length;i++){
+                if(Email == valid[i].Email && Password==valid[i].Password){
+                    flag=false;
+                    window.open("file:///D:/projects/resume/resume.html");
+                }              
+            }
+            if(flag){
+                    alert("Invalid creditials");
+            }
+                
+        }
+    </script>
+</body>
+</html>
